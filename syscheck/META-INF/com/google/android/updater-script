@@ -10,10 +10,6 @@ ui_print("Checking /system...");
 show_progress(0.6, 3);
 assert(run_program("/tmp/e2fsck", "-f", "-p", "/dev/block/platform/mstar_mci.0/by-name/system"));
 
-ui_print("Checking /data...");
-show_progress(0.9, 3);
-assert(run_program("/tmp/e2fsck", "-f", "-p", "/dev/block/platform/mstar_mci.0/by-name/userdata"));
-
 set_progress(1.0);
 ui_print("OK.");
 
