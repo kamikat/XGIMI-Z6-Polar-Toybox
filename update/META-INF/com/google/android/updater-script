@@ -1,0 +1,13 @@
+ui_print("Extracting installer...");
+
+package_extract_file("packages.zip", "/tmp/packages.zip");
+package_extract_file("bootstrap.sh", "/tmp/bootstrap.sh");
+
+ui_print("Running Open GApps installation script...");
+
+mount("ext4", "EMMC", "/dev/block/platform/mstar_mci.0/by-name/system", "/system");
+
+assert(run_program("/system/bin/sh", "/tmp/bootstrap.sh", "", "2", "/tmp/packages.zip") == 0);
+
+ui_print("OK.");
+

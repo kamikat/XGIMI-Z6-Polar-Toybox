@@ -1,0 +1,3 @@
+post-build=MStar/aosp_synsepalum_R/synsepalum_R:6.0/MRA58K/V3.4.61:userdebug/test-keys
+post-timestamp=1535082829
+pre-device=synsepalum_R
