@@ -1,0 +1,5 @@
+ui_print("Writing /boot...");
+show_progress(0.9, 3);
+package_extract_file("boot.img", "/dev/block/platform/mstar_mci.0/by-name/boot");
+set_progress(1.0);
+ui_print("OK.");
