@@ -25,13 +25,13 @@ bb="$TMP/busybox-$BINARCH"
 l="$TMP/bin"
 setenforce 0
 for f in app_densities.txt app_sizes.txt bkup_tail.sh gapps-remove.txt g.prop installer.sh busybox-arm tar-arm unzip-arm zip-arm; do
-  /sbin/busybox unzip -o "$OPENGAZIP" "$f" -d "$TMP";
+  busybox unzip -o "$OPENGAZIP" "$f" -d "$TMP";
 done
 for f in  busybox-arm tar-arm unzip-arm zip-arm; do
   chmod +x "$TMP/$f";
 done
 if [ -e "$bb" ]; then
-  /sbin/busybox install -d "$l"
+  busybox install -d "$l"
   for i in $($bb --list); do
     if ! ln -sf "$bb" "$l/$i" && ! $bb ln -sf "$bb" "$l/$i" && ! $bb ln -f "$bb" "$l/$i" ; then
       # create script wrapper if symlinking and hardlinking failed because of restrictive selinux policy
